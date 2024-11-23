@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - EarnWrite</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #f39c12;
+        }
+
+        /* FAQ Container */
+        .faq-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            background-color: #ecf0f1;
+            padding: 40px 20px;
+        }
+
+        .faq-content {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .faq-content h2 {
+            margin-bottom: 20px;
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        .accordion {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .accordion-item {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        .accordion-item-header {
+            padding: 15px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            color: #2c3e50;
+            background-color: #f39c12;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .accordion-item-header:hover {
+            background-color: #e67e22;
+        }
+
+        .accordion-item-content {
+            padding: 15px;
+            background-color: #f9f9f9;
+            color: #555;
+            display: none;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .accordion-item.active .accordion-item-content {
+            display: block;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .faq-content {
+                padding: 20px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <h1>EarnWrite</h1>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+    
+            <li><a href="signup.html">Sign Up</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- FAQ Section -->
+    <div class="faq-container">
+        <div class="faq-content">
+            <h2>Frequently Asked Questions</h2>
+
+            <!-- Accordion for FAQs -->
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-item-header">How can I start earning on EarnWrite?</div>
+                    <div class="accordion-item-content">
+                        <p>To start earning, sign up for an account, browse available writing tasks, select the ones you’re interested in, complete them, and get paid!</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-item-header">What types of tasks can I complete?</div>
+                    <div class="accordion-item-content">
+                        <p>We offer a wide range of tasks including blog posts, product descriptions, copywriting, academic writing, and more. Tasks vary in difficulty and payment.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-item-header">How do I get paid?</div>
+                    <div class="accordion-item-content">
+                        <p>Once you complete a task, your payment will be credited to your account. You can withdraw your earnings via PayPal or direct bank transfer once the balance reaches a minimum threshold.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-item-header">Are there any fees?</div>
+                    <div class="accordion-item-content">
+                        <p>No, EarnWrite does not charge any fees to complete tasks. However, there may be transaction fees from payment processors for withdrawals.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-item-header">Can I work from anywhere?</div>
+                    <div class="accordion-item-content">
+                        <p>Yes! You can complete tasks from anywhere in the world, as long as you have an internet connection.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-item-header">How do I get support if I need help?</div>
+                    <div class="accordion-item-content">
+                        <p>If you need any assistance, you can contact our support team through the "Contact Us" section on the website or via email. We’re here to help!</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- JavaScript for Accordion functionality -->
+    <script>
+        // Get all accordion items
+        const accordionItems = document.querySelectorAll('.accordion-item');
+
+        // Add click event listeners
+        accordionItems.forEach(item => {
+            item.querySelector('.accordion-item-header').addEventListener('click', () => {
+                // Toggle active class for accordion item
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+
+</body>
+
+</html>

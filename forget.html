@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forgot Password - EarnWrite</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #f39c12;
+        }
+
+        /* Forgot Password Form Container */
+        .forgot-password-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ecf0f1;
+        }
+
+        .forgot-password-form {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .forgot-password-form h2 {
+            margin-bottom: 20px;
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 6px;
+        }
+
+        /* Back to Login Link */
+        .back-to-login {
+            text-align: center;
+            font-size: 14px;
+            color: #555;
+            margin-top: 20px;
+        }
+
+        .back-to-login a {
+            color: #f39c12;
+            text-decoration: none;
+        }
+
+        .back-to-login a:hover {
+            color: #e67e22;
+        }
+
+        /* Submit Button */
+        .cta-button {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .cta-button button {
+            width: 100%;
+            padding: 12px;
+            font-size: 18px;
+            background-color: #f39c12;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button button:hover {
+            background-color: #e67e22;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <h1>EarnWrite</h1>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+         
+            <li><a href="signup.html">Sign Up</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Forgot Password Form Section -->
+    <div class="forgot-password-container">
+        <div class="forgot-password-form">
+            <h2>Reset Your Password</h2>
+            <form id="forgotPasswordForm">
+                <!-- Email Address -->
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required placeholder="Enter your registered email">
+                </div>
+
+                <!-- Submit Button -->
+                <div class="cta-button">
+                    <button type="submit">Reset Password</button>
+                </div>
+
+                <!-- Back to Login Link -->
+                <div class="back-to-login">
+                    <p>Remember your password? <a href="login.html">Back to Login</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Prevent form submission for demonstration
+        document.getElementById("forgotPasswordForm").onsubmit = function (e) {
+            e.preventDefault();
+            alert("Password reset request sent!");
+        }
+    </script>
+
+</body>
+
+</html>

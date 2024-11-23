@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - EarnWrite</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #f39c12;
+        }
+
+        /* Sign-Up Form Container */
+        .sign-up-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ecf0f1;
+        }
+
+        .sign-up-form {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .sign-up-form h2 {
+            margin-bottom: 20px;
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 6px;
+        }
+
+        /* Password Strength Meter */
+        .strength-meter {
+            width: 100%;
+            height: 5px;
+            background-color: #ddd;
+            border-radius: 3px;
+            margin-top: 10px;
+        }
+
+        .strength-meter span {
+            display: block;
+            height: 100%;
+        }
+
+        .weak {
+            background-color: red;
+            width: 33%;
+        }
+
+        .medium {
+            background-color: orange;
+            width: 66%;
+        }
+
+        .strong {
+            background-color: green;
+            width: 100%;
+        }
+
+        /* Terms and Conditions Section */
+        .terms {
+            text-align: left;
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .terms input {
+            margin-right: 10px;
+        }
+
+        /* Submit Button */
+        .cta-button {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .cta-button button {
+            width: 100%;
+            padding: 12px;
+            font-size: 18px;
+            background-color: #f39c12;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button button:hover {
+            background-color: #e67e22;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <h1>EarnWrite</h1>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+        
+            <li><a href="signup.html">Sign Up</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- Sign-Up Form Section -->
+    <div class="sign-up-container">
+        <div class="sign-up-form">
+            <h2>Create Your Account</h2>
+            <form id="signUpForm">
+                <!-- Full Name -->
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" required placeholder="Enter your full name">
+                </div>
+
+                <!-- Email Address -->
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required placeholder="Enter your email address">
+                </div>
+
+                <!-- Password -->
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required placeholder="Enter your password">
+                    <div class="strength-meter" id="passwordStrengthMeter">
+                        <span id="strengthBar"></span>
+                    </div>
+                </div>
+
+                <!-- Terms & Conditions -->
+                <div class="terms">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <label for="terms">I agree to the <a href="term.html">Terms & Conditions</a></label>
+                </div>
+
+                <!-- Create Account Button -->
+                <div class="cta-button">
+                    <button type="submit">Create Account</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Password strength meter
+        const passwordInput = document.getElementById("password");
+        const strengthMeter = document.getElementById("passwordStrengthMeter");
+        const strengthBar = document.getElementById("strengthBar");
+
+        passwordInput.addEventListener("input", function () {
+            const password = passwordInput.value;
+            const strength = calculatePasswordStrength(password);
+
+            // Set the strength bar class and width based on password strength
+            if (strength === "weak") {
+                strengthBar.className = "weak";
+            } else if (strength === "medium") {
+                strengthBar.className = "medium";
+            } else if (strength === "strong") {
+                strengthBar.className = "strong";
+            }
+        });
+
+        // Function to calculate password strength
+        function calculatePasswordStrength(password) {
+            const regexWeak = /[a-z]/;
+            const regexMedium = /[A-Z]/;
+            const regexStrong = /[0-9!@#$%^&*()_+={}\[\]:;'"<>,.?/\\-]/;
+
+            let strength = "weak";
+            if (password.length >= 8 && regexMedium.test(password) && regexStrong.test(password)) {
+                strength = "strong";
+            } else if (password.length >= 6 && regexMedium.test(password)) {
+                strength = "medium";
+            }
+
+            return strength;
+        }
+
+        // Prevent form submission for demonstration
+        document.getElementById("signUpForm").onsubmit = function (e) {
+            e.preventDefault();
+            alert("Form submitted successfully!");
+        }
+    </script>
+
+</body>
+
+</html>
